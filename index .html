@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lynya Organic Cosmetics — Clean, plant-powered beauty products for conscious living." />
+  <title>Lynya — Organic Cosmetics</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Built Tailwind + custom CSS -->
+  <link rel="stylesheet" href="dist/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar">
+    <a href="/" class="navbar-logo">
+      🌿 Lynya<span>&nbsp;Organics</span>
+    </a>
+
+    <ul class="navbar-links">
+      <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+      <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+      <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+    </ul>
+
+    <div class="navbar-actions">
+      <button aria-label="Search" id="searchBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+
+      <button aria-label="Cart" class="cart-btn" id="cartToggleBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ PAGE: HOME ══════════════════════════════ -->
+  <div id="page-home" class="spa-page">
+
+  <!-- ═══════════════════════════════ HERO ════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>🌱</span>
+        <span>100% Certified Organic</span>
+      </div>
+
+      <h1 class="hero-title">
+        Nature's Finest<br />
+        for Your <span class="highlight">Skin.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Lynya curates clean, plant-powered cosmetics crafted from ethically sourced organic ingredients — no harsh chemicals, ever. Beauty that's good for you and the planet.
+      </p>
+
+      <div class="hero-cta-group">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Shop Now
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+        <a href="#about" class="btn-ghost">
+          Our Story
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">150+</div>
+          <div class="hero-stat-label">Orders Everyday</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">2,450+</div>
+          <div class="hero-stat-label">Products Sold</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">98%</div>
+          <div class="hero-stat-label">Happy Customers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-area">
+      <!-- Main plant image placeholder (replace with real product photo) -->
+      <div style="width:340px;height:420px;border-radius:50% 50% 40% 40%;background:linear-gradient(160deg,#a8d5b5,#5a9e6f);display:flex;align-items:center;justify-content:center;font-size:6rem;box-shadow:0 30px 80px rgba(61,122,79,0.25);">
+        🌿
+      </div>
+
+      <div class="hero-float-card card-top">
+        <div class="card-icon">🌤️</div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:700;">Cruelty Free</div>
+          <div style="font-size:0.7rem;color:#6b7280;">Certified</div>
+        </div>
+      </div>
+
+      <div class="hero-float-card card-middle">
+        <div class="card-icon">💧</div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:700;">Hydration Boost</div>
+          <div style="font-size:0.7rem;color:#6b7280;">Up to 72h</div>
+        </div>
+      </div>
+
+      <div class="hero-float-card card-bottom">
+        <div class="card-icon">🌍</div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:700;">Eco Packaging</div>
+          <div style="font-size:0.7rem;color:#6b7280;">100% Recyclable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════ FEATURES STRIP ════════════════════════ -->
+  <div class="features-strip">
+    <div class="feature-item">
+      <div class="feature-icon">🚚</div>
+      <div>
+        <div class="feature-title">Free Shipping</div>
+        <div class="feature-desc">On all orders over $50 within the US</div>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🌿</div>
+      <div>
+        <div class="feature-title">100% Organic</div>
+        <div class="feature-desc">USDA certified organic ingredients only</div>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔄</div>
+      <div>
+        <div class="feature-title">Easy Returns</div>
+        <div class="feature-desc">30-day hassle-free return policy</div>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">💳</div>
+      <div>
+        <div class="feature-title">Secure Payment</div>
+        <div class="feature-desc">Stripe-secured — Debit & Credit Pay-As-You-Go</div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- end #page-home -->
+
+  <!-- ════════════════════════ PAGE: PRODUCTS ═════════════════════════════ -->
+  <div id="page-products" class="spa-page" style="display:none;">
+
+  <!-- ════════════════════════════ CATEGORIES ════════════════════════════ -->
+  <section class="section" id="categories">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-label">Browse by Type</div>
+      <div class="section-title">Shop Our Collections</div>
+      <p class="section-subtitle">From nourishing serums to revitalizing masks — discover your perfect organic skincare ritual.</p>
+
+      <div class="categories-grid">
+        <div class="category-card" onclick="filterProducts('skincare')">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#a8d5b5,#2d6a4f);display:flex;align-items:center;justify-content:center;font-size:5rem;">🧴</div>
+          <div class="category-card-overlay">
+            <h3>Skincare</h3>
+            <p>Serums, moisturizers, toners & more</p>
+          </div>
+        </div>
+        <div class="category-card" onclick="filterProducts('haircare')">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#c9e8d0,#52b788);display:flex;align-items:center;justify-content:center;font-size:5rem;">✨</div>
+          <div class="category-card-overlay">
+            <h3>Haircare</h3>
+            <p>Shampoos, conditioners & treatments</p>
+          </div>
+        </div>
+        <div class="category-card" onclick="filterProducts('bodycare')">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#b7e1c3,#3d7a4f);display:flex;align-items:center;justify-content:center;font-size:5rem;">🌸</div>
+          <div class="category-card-overlay">
+            <h3>Body Care</h3>
+            <p>Lotions, scrubs & bath essentials</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ PRODUCTS ══════════════════════════════ -->
+  <section class="section" id="products" style="background:var(--color-cream);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="products-header">
+        <div>
+          <div class="section-label">Our Products</div>
+          <div class="section-title">Best Selling Products</div>
+        </div>
+        <button class="btn-outline" onclick="filterProducts('all')">View All</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products injected by script.js -->
+      </div>
+
+      <div class="view-all-wrap">
+        <button class="btn-outline" onclick="filterProducts('all')">
+          View All Products
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- end #page-products -->
+
+  <!-- ══════════════════════════ PAGE: ABOUT ══════════════════════════════ -->
+  <div id="page-about" class="spa-page" style="display:none;">
+
+  <!-- ══════════════════════════ WHY LYNYA / ABOUT ════════════════════════ -->
+  <section class="about-split" id="about">
+    <div class="about-image-grid">
+      <div style="grid-row:span 2;height:416px;border-radius:0.75rem;background:linear-gradient(160deg,#7fb88a,#2a5c38);display:flex;align-items:center;justify-content:center;font-size:7rem;">🌿</div>
+      <div style="height:200px;border-radius:0.75rem;background:linear-gradient(135deg,#a8d5b5,#52b788);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌸</div>
+      <div style="height:200px;border-radius:0.75rem;background:linear-gradient(135deg,#c9e8d0,#3d7a4f);display:flex;align-items:center;justify-content:center;font-size:4rem;">💚</div>
+    </div>
+
+    <div>
+      <div class="section-label">Why Lynya?</div>
+      <h2 class="section-title">Beauty rooted in<br /><em>nature's wisdom.</em></h2>
+      <p class="section-subtitle">Every Lynya product starts with a single commitment: what you put on your skin should be as clean and honest as what you put in your body. No fillers, no compromises.</p>
+
+      <div class="about-pillars">
+        <div class="pillar-card">
+          <div class="pillar-icon">🌱</div>
+          <div class="pillar-title">Farm-to-Skin</div>
+          <div class="pillar-desc">Ingredients sourced directly from certified organic farms.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🐰</div>
+          <div class="pillar-title">Cruelty Free</div>
+          <div class="pillar-desc">Never tested on animals. Ever. PETA certified.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">♻️</div>
+          <div class="pillar-title">Eco Packaging</div>
+          <div class="pillar-desc">100% recyclable, biodegradable packaging materials.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔬</div>
+          <div class="pillar-title">Science-Backed</div>
+          <div class="pillar-desc">Formulated by dermatologists for maximum efficacy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ TESTIMONIALS ════════════════════════════ -->
+  <section class="testimonials" id="reviews">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:0.5rem;">
+        <div class="section-label" style="justify-content:center;display:flex;">Customer Love</div>
+        <div class="section-title" style="text-align:center;">What Our Customers Say</div>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I've tried dozens of organic brands but Lynya is on another level. My skin has never felt this balanced and hydrated. The Rose Serum is my holy grail."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Amara J.</div>
+              <div class="testimonial-loc">New York, NY</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Fast shipping, beautiful packaging, and the products actually work. My skin cleared up in two weeks. I'm officially a Lynya customer for life."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sofia M.</div>
+              <div class="testimonial-loc">Austin, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Finally a brand that takes ingredient transparency seriously. Everything is clean, effective, and smells divine. The body butter is pure magic."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">P</div>
+            <div>
+              <div class="testimonial-name">Priya K.</div>
+              <div class="testimonial-loc">Los Angeles, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- end #page-about -->
+
+  <!-- ════════════════════════════ PAGE: BLOG ═════════════════════════════ -->
+  <div id="page-blog" class="spa-page" style="display:none;">
+
+  <!-- ══════════════════════════ BLOG HERO ══════════════════════════════ -->
+  <section class="section" style="padding-top:5rem;padding-bottom:2rem;">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;display:flex;">Our Journal</div>
+      <div class="section-title">Clean Beauty Stories</div>
+      <p class="section-subtitle">Tips, ingredient deep-dives, and honest conversations about what it means to live and look beautifully — without compromise.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ BLOG POSTS ═════════════════════════════ -->
+  <section class="section" style="padding-top:1rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;">
+
+        <article style="border-radius:1rem;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.06);cursor:pointer;" onclick="showToast('Full article coming soon! 🌿')">
+          <div style="height:200px;background:linear-gradient(135deg,#a8d5b5,#2d6a4f);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌿</div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:600;color:var(--color-green);text-transform:uppercase;letter-spacing:0.05em;">Ingredients</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;margin:0.5rem 0;line-height:1.3;">Why We'll Never Use Parabens — Even "Safe" Ones</h3>
+            <p style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin-bottom:1rem;">A deep dive into the preservative debate and how Lynya keeps products shelf-stable the clean way.</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:var(--color-green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.8rem;">L</div>
+              <div>
+                <div style="font-size:0.8rem;font-weight:600;">Lynya Team</div>
+                <div style="font-size:0.75rem;color:#9ca3af;">June 3, 2026 · 5 min read</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article style="border-radius:1rem;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.06);cursor:pointer;" onclick="showToast('Full article coming soon! 🌿')">
+          <div style="height:200px;background:linear-gradient(135deg,#c9e8d0,#52b788);display:flex;align-items:center;justify-content:center;font-size:4rem;">💧</div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:600;color:var(--color-green);text-transform:uppercase;letter-spacing:0.05em;">Skincare Guide</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;margin:0.5rem 0;line-height:1.3;">The Right Order to Layer Your Skincare Products</h3>
+            <p style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin-bottom:1rem;">Serum before moisturiser? Oil last or first? We settle the layering debate once and for all.</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:#52b788;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.8rem;">M</div>
+              <div>
+                <div style="font-size:0.8rem;font-weight:600;">Maya Patel</div>
+                <div style="font-size:0.75rem;color:#9ca3af;">May 28, 2026 · 4 min read</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article style="border-radius:1rem;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.06);cursor:pointer;" onclick="showToast('Full article coming soon! 🌿')">
+          <div style="height:200px;background:linear-gradient(135deg,#b7e1c3,#3d7a4f);display:flex;align-items:center;justify-content:center;font-size:4rem;">🌍</div>
+          <div style="padding:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:600;color:var(--color-green);text-transform:uppercase;letter-spacing:0.05em;">Sustainability</span>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;margin:0.5rem 0;line-height:1.3;">Our New Compostable Packaging: One Year In</h3>
+            <p style="color:#6b7280;font-size:0.9rem;line-height:1.6;margin-bottom:1rem;">What we learned, what we changed, and the carbon numbers we're proud to share.</p>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:#3d7a4f;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.8rem;">A</div>
+              <div>
+                <div style="font-size:0.8rem;font-weight:600;">Aisha Okafor</div>
+                <div style="font-size:0.75rem;color:#9ca3af;">May 15, 2026 · 6 min read</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ NEWSLETTER ══════════════════════════════ -->
+  <section class="newsletter">
+    <div>
+      <h2 class="newsletter-title">Join the Lynya<br />Inner Circle 🌿</h2>
+      <p class="newsletter-sub">Get 15% off your first order, plus early access to new launches, exclusive offers, and clean beauty tips delivered to your inbox.</p>
+    </div>
+    <div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required id="newsletterEmail" />
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin-top:0.75rem;">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  </div><!-- end #page-blog -->
+
+  <!-- ════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Lynya<span> Organics</span></div>
+        <p class="footer-brand-desc">Clean, plant-powered cosmetics crafted for conscious living. Because what's good for the earth is good for your skin.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="event.preventDefault();showPage('products')">Skincare</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('products')">Haircare</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('products')">Body Care</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('products')">Gift Sets</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('products')">New Arrivals</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="event.preventDefault();showPage('about')">About Lynya</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('about')">Sustainability</a></li>
+          <li><a href="#" onclick="event.preventDefault();showPage('blog')">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Lynya Organics. All rights reserved.</span>
+      <span>Made with 💚 for clean beauty</span>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════ CART SIDEBAR ════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
+    <div class="cart-header">
+      <div class="cart-title">Your Cart 🛍️</div>
+      <button class="cart-close" id="cartCloseBtn" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <!-- Populated by script.js -->
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-value" id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('Checkout coming soon! 🎉')">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════ TOAST ═══════════════════════════════════ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ════════════════════════ SPA ROUTER ═════════════════════════════ -->
+  <style>
+    .spa-page { display: none; }
+    .spa-page.active { display: block; }
+    .navbar-links .nav-link.active {
+      color: var(--color-green);
+      font-weight: 600;
+    }
+    .spa-page { animation: pageIn 0.3s ease; }
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const pages = ['home', 'products', 'about', 'blog'];
+
+      // Show a page by name
+      function showPage(name) {
+        if (!pages.includes(name)) name = 'home';
+
+        // Hide all pages
+        pages.forEach(p => {
+          const el = document.getElementById('page-' + p);
+          if (el) { el.classList.remove('active'); el.style.display = 'none'; }
+        });
+
+        // Show target page
+        const target = document.getElementById('page-' + name);
+        if (target) { target.style.display = 'block'; target.classList.add('active'); }
+
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(a => {
+          a.classList.toggle('active', a.dataset.page === name);
+        });
+
+        // Update browser URL (e.g. /products) without reload
+        history.pushState({ page: name }, '', '/' + (name === 'home' ? '' : name));
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Expose globally for footer onclick calls
+      window.showPage = showPage;
+      document.querySelectorAll('.nav-link').forEach(a => {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          showPage(this.dataset.page);
+        });
+      });
+
+      // Browser back/forward buttons
+      window.addEventListener('popstate', function (e) {
+        const page = (e.state && e.state.page) ? e.state.page : 'home';
+        showPage(page);
+      });
+
+      // "Shop Now" button → go to products page
+      const shopNowBtn = document.querySelector('.btn-primary[onclick*="products"]');
+      if (shopNowBtn) {
+        shopNowBtn.removeAttribute('onclick');
+        shopNowBtn.addEventListener('click', () => showPage('products'));
+      }
+
+      // "Our Story" button → go to about page
+      const ourStoryBtn = document.querySelector('a.btn-ghost[href="#about"]');
+      if (ourStoryBtn) {
+        ourStoryBtn.removeAttribute('href');
+        ourStoryBtn.addEventListener('click', e => { e.preventDefault(); showPage('about'); });
+      }
+
+      // Initial load — read URL path to decide which page to show
+      const path = window.location.pathname.replace('/', '').replace('.html', '') || 'home';
+      showPage(pages.includes(path) ? path : 'home');
+    })();
+  </script>
+
+  <!-- JS (deferred, all logic in script.js) -->
+  <script src="dist/script.js" defer></script>
+</body>
+</html>
