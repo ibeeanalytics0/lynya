@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop — Lynya Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+<div class="shop-hero">
+  <div class="section-label">Our Collection</div>
+  <h1 class="section-title">All Products</h1>
+  <p class="section-sub">Discover our full range of certified organic cosmetics.</p>
+  <div class="filter-bar">
+    <button class="filter-btn" data-cat="all">All Products</button>
+    <button class="filter-btn" data-cat="skincare">Skincare</button>
+    <button class="filter-btn" data-cat="haircare">Haircare</button>
+    <button class="filter-btn" data-cat="bodycare">Body Care</button>
+  </div>
+</div>
+
+<div class="shop-layout">
+  <aside>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Sort By</div>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Featured</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Max Price</div>
+      <input type="range" class="price-range" id="priceRange" min="10" max="50" value="50" step="1"/>
+      <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.35rem;">Up to <strong id="priceLabel">$50</strong></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Min Rating</div>
+      <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;margin-bottom:0.4rem;cursor:pointer;"><input type="radio" name="minRating" value="0" checked style="accent-color:var(--green);"> All</label>
+      <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;margin-bottom:0.4rem;cursor:pointer;"><input type="radio" name="minRating" value="4.5" style="accent-color:var(--green);"> ★ 4.5+</label>
+      <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;cursor:pointer;"><input type="radio" name="minRating" value="4.8" style="accent-color:var(--green);"> ★ 4.8+</label>
+    </div>
+  </aside>
+  <div>
+    <div class="product-count" id="productCount"></div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</div>
+
+<footer style="background:#0f1f14;">
+  <div class="footer-bottom" style="padding:1.5rem 5rem;">
+    <span style="color:rgba(255,255,255,0.35);">© 2026 Lynya Organics</span>
+    <a href="../index.html" style="color:var(--green-light);font-size:0.82rem;">← Back to Home</a>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  initNav('shop', '../');
+
+  const params  = new URLSearchParams(window.location.search);
+  let activeCat = params.get('cat') || 'all';
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (btn.dataset.cat === activeCat) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      activeCat = btn.dataset.cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    });
+  });
+
+  document.getElementById('sortSelect').addEventListener('change', render);
+  document.getElementById('priceRange').addEventListener('input', function() {
+    document.getElementById('priceLabel').textContent = '$' + this.value;
+    render();
+  });
+  document.querySelectorAll('input[name="minRating"]').forEach(r => r.addEventListener('change', render));
+
+  function render() {
+    const maxPrice  = Number(document.getElementById('priceRange').value);
+    const minRating = Number(document.querySelector('input[name="minRating"]:checked').value);
+    const sort      = document.getElementById('sortSelect').value;
+
+    let list = PRODUCTS.filter(p =>
+      (activeCat === 'all' || p.category === activeCat) &&
+      p.price <= maxPrice && p.rating >= minRating
+    );
+    if (sort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+    if (sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+    if (sort === 'rating')     list.sort((a,b) => b.rating - a.rating);
+
+    document.getElementById('productCount').textContent = `${list.length} product${list.length!==1?'s':''} found`;
+    const grid = document.getElementById('productsGrid');
+    if (!list.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted);">No products match your filters.</p>'; return; }
+    grid.innerHTML = list.map(p => productCardHTML(p, '../')).join('');
+  }
+  render();
+</script>
+</body>
+</html>

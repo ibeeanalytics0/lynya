@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout — Lynya Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> › <a href="shop.html">Shop</a> › Checkout
+</div>
+
+<div class="checkout-grid">
+
+  <!-- Left: Customer Info -->
+  <div>
+    <div class="checkout-title">Shipping Information</div>
+
+    <div id="checkoutForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" id="firstName" placeholder="Jane" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" id="lastName" placeholder="Doe" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" id="email" placeholder="jane@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="phone" placeholder="+1 (555) 000-0000"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Street Address</label>
+        <input type="text" class="form-input" id="address" placeholder="123 Main Street" required/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">City</label>
+          <input type="text" class="form-input" id="city" placeholder="New York" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ZIP Code</label>
+          <input type="text" class="form-input" id="zip" placeholder="10001" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">State</label>
+        <input type="text" class="form-input" id="state" placeholder="NY" required/>
+      </div>
+
+      <div style="margin-top:1.75rem;">
+        <div class="checkout-title" style="font-size:1.15rem;">Payment Method</div>
+        <div class="payment-methods">
+          <label class="payment-opt">
+            <input type="radio" name="payment" value="card" checked/>
+            💳 Debit / Credit Card
+          </label>
+          <label class="payment-opt">
+            <input type="radio" name="payment" value="payg"/>
+            📅 Pay As You Go (Affirm — 4 interest-free payments)
+          </label>
+        </div>
+        <div class="stripe-badge">
+          🔒 All payments processed securely by <strong style="margin-left:0.25rem;">Stripe</strong>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width:100%;justify-content:center;margin-top:1.75rem;font-size:1rem;padding:1rem;" id="payBtn">
+        Pay Securely with Stripe →
+      </button>
+
+      <p id="errorMsg" style="color:#dc2626;font-size:0.82rem;margin-top:0.75rem;display:none;"></p>
+    </div>
+  </div>
+
+  <!-- Right: Order Summary -->
+  <div>
+    <div class="order-summary-box">
+      <div class="order-summary-title">Order Summary</div>
+      <div id="summaryItems"></div>
+      <div class="summary-total">
+        <span>Total</span>
+        <span class="summary-total-val" id="summaryTotal">$0.00</span>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-light);margin-top:0.75rem;line-height:1.6;">
+        Free shipping on orders over $50. Taxes calculated at checkout.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:#0f1f14;">
+  <div class="footer-bottom" style="padding:1.5rem 5rem;">
+    <span style="color:rgba(255,255,255,0.35);">© 2026 Lynya Organics</span>
+    <a href="../index.html" style="color:var(--green-light);font-size:0.82rem;">← Continue Shopping</a>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  initNav('shop', '../');
+
+  // If "Buy Now" from product page, add that product temporarily
+  const buyNowId = new URLSearchParams(window.location.search).get('buyNow');
+  if (buyNowId) {
+    Cart.clear();
+    Cart.add(Number(buyNowId), 1);
+  }
+
+  // Render order summary
+  function renderSummary() {
+    const items   = Cart.items();
+    const itemsEl = document.getElementById('summaryItems');
+    const totalEl = document.getElementById('summaryTotal');
+
+    if (items.length === 0) {
+      itemsEl.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;padding:1rem 0;">Your cart is empty. <a href="shop.html" style="color:var(--green);">Go shopping →</a></p>';
+      totalEl.textContent = '$0.00';
+      return;
+    }
+
+    itemsEl.innerHTML = items.map(item => `
+      <div class="summary-item">
+        <span>${item.emoji} ${item.name} × ${item.qty}</span>
+        <span>${fmt(item.price * item.qty)}</span>
+      </div>`).join('');
+
+    const subtotal = Cart.totalPrice();
+    const shipping = subtotal >= 50 ? 0 : 5.99;
+    itemsEl.insertAdjacentHTML('beforeend', `
+      <div class="summary-item" style="color:var(--text-muted);">
+        <span>Shipping</span>
+        <span>${shipping === 0 ? '<span style="color:var(--green);font-weight:600;">FREE</span>' : fmt(shipping)}</span>
+      </div>`);
+    totalEl.textContent = fmt(subtotal + shipping);
+  }
+
+  renderSummary();
+
+  // Pay button — calls Vercel Function which creates Stripe session
+  document.getElementById('payBtn').addEventListener('click', async function() {
+    const items = Cart.items();
+    if (!items.length) { showError('Your cart is empty!'); return; }
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    if (!firstName || !email) { showError('Please fill in your name and email.'); return; }
+
+    const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+    this.disabled    = true;
+    this.textContent = 'Redirecting to Stripe…';
+
+    try {
+      const res = await fetch('/api/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty, emoji: i.emoji })),
+          customerEmail: email,
+          paymentMethod,
+          shipping: {
+            name:    `${firstName} ${document.getElementById('lastName').value}`,
+            address: document.getElementById('address').value,
+            city:    document.getElementById('city').value,
+            state:   document.getElementById('state').value,
+            zip:     document.getElementById('zip').value
+          }
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;  // Redirect to Stripe Checkout
+      } else {
+        throw new Error(data.error || 'Could not create checkout session.');
+      }
+    } catch (err) {
+      showError('Payment error: ' + err.message);
+      this.disabled    = false;
+      this.textContent = 'Pay Securely with Stripe →';
+    }
+  });
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+</script>
+</body>
+</html>

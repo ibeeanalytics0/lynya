@@ -1,0 +1,8 @@
+{
+  "name": "lynya-organics",
+  "version": "1.0.0",
+  "description": "Lynya Organic Cosmetics — E-Commerce Website",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
