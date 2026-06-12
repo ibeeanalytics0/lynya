@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product — Lynya Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> › <a href="shop.html">Shop</a> › <span id="bcName">Product</span>
+</div>
+
+<div class="product-detail-grid" id="productDetail">
+  <div style="text-align:center;padding:4rem;color:var(--text-muted);">Loading…</div>
+</div>
+
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="section-label">You May Also Like</div>
+    <div class="section-title" style="margin-bottom:1.5rem;">Related Products</div>
+    <div class="products-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<footer style="background:#0f1f14;">
+  <div class="footer-bottom" style="padding:1.5rem 5rem;">
+    <span style="color:rgba(255,255,255,0.35);">© 2026 Lynya Organics</span>
+    <a href="../index.html" style="color:var(--green-light);font-size:0.82rem;">← Back to Home</a>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  initNav('shop', '../');
+
+  const id      = Number(new URLSearchParams(window.location.search).get('id'));
+  const product = PRODUCTS.find(p => p.id === id);
+
+  if (!product) {
+    document.getElementById('productDetail').innerHTML =
+      '<p style="padding:4rem;text-align:center;color:var(--text-muted);">Product not found. <a href="shop.html" style="color:var(--green);">Back to Shop</a></p>';
+  } else {
+    document.title = `${product.name} — Lynya Organics`;
+    document.getElementById('bcName').textContent = product.name;
+
+    let qty = 1;
+
+    document.getElementById('productDetail').innerHTML = `
+      <div class="product-visual" style="background:${product.bg};">${product.emoji}</div>
+      <div>
+        <div class="product-cat" style="margin-bottom:0.5rem;">${product.categoryLabel}</div>
+        <h1 class="detail-name">${product.name}</h1>
+        <div class="product-stars" style="margin-bottom:1rem;">
+          <span class="stars">${stars(product.rating)}</span>
+          <span class="review-count">&nbsp;${product.rating} · ${product.reviews} reviews</span>
+        </div>
+        <div class="detail-price">
+          ${fmt(product.price)}
+          ${product.oldPrice ? `<span style="font-size:1rem;color:var(--text-light);text-decoration:line-through;font-weight:400;margin-left:0.5rem;">${fmt(product.oldPrice)}</span>` : ''}
+        </div>
+        <p class="detail-desc">${product.description}</p>
+        <div class="detail-label">Key Ingredients</div>
+        <div class="ingredients-box">🌿 ${product.ingredients}</div>
+        <div class="detail-label" style="margin-bottom:0.75rem;">Size: ${product.size}</div>
+        <div class="qty-row">
+          <div class="qty-ctrl">
+            <button onclick="if(qty>1){qty--;document.getElementById('qtyVal').textContent=qty;}">−</button>
+            <span id="qtyVal">1</span>
+            <button onclick="qty++;document.getElementById('qtyVal').textContent=qty;">+</button>
+          </div>
+          <span style="font-size:0.8rem;color:var(--text-muted);">✓ In Stock</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="Cart.add(${product.id},qty);toast('✅ Added to cart!');Cart.updateBadge();">
+            🛒 Add to Cart
+          </button>
+          <a href="checkout.html?buyNow=${product.id}" class="btn-buynow">⚡ Buy Now</a>
+        </div>
+        <div class="trust-row" style="margin-top:1.25rem;">
+          <span class="trust-item">🔒 Secure Stripe Checkout</span>
+          <span class="trust-item">🚚 Free shipping over $50</span>
+          <span class="trust-item">↩️ 30-day returns</span>
+        </div>
+      </div>`;
+
+    // Related products
+    const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0,3);
+    document.getElementById('relatedGrid').innerHTML = related.map(p => productCardHTML(p,'../')).join('');
+  }
+</script>
+</body>
+</html>

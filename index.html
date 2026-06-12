@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Lynya Organic Cosmetics — Clean, plant-powered beauty."/>
+  <title>Lynya — Organic Cosmetics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">🌱 100% Certified Organic</div>
+    <h1 class="hero-title">Nature's Finest<br>for Your <span class="highlight">Skin.</span></h1>
+    <p class="hero-sub">Lynya curates clean, plant-powered cosmetics crafted from ethically sourced organic ingredients — no harsh chemicals, ever.</p>
+    <div class="hero-ctas">
+      <a href="pages/shop.html" class="btn-primary">Shop Now →</a>
+      <a href="pages/about.html" class="btn-ghost">Our Story →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-value">150+</div><div class="stat-label">Orders Everyday</div></div>
+      <div><div class="stat-value">2,450+</div><div class="stat-label">Products Sold</div></div>
+      <div><div class="stat-value">98%</div><div class="stat-label">Happy Customers</div></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-plant">🌿</div>
+    <div class="float-card top"><div class="fc-icon">🐰</div><div><div>Cruelty Free</div><div class="fc-sub">PETA Certified</div></div></div>
+    <div class="float-card middle"><div class="fc-icon">💧</div><div><div>Hydration Boost</div><div class="fc-sub">Up to 72h</div></div></div>
+    <div class="float-card bottom"><div class="fc-icon">🌍</div><div><div>Eco Packaging</div><div class="fc-sub">100% Recyclable</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES STRIP ══════════════════════════════════════════════════════ -->
+<div class="features-strip">
+  <div class="feature-item"><div class="feature-icon">🚚</div><div><div class="feature-title">Free Shipping</div><div class="feature-desc">On all orders over $50</div></div></div>
+  <div class="feature-item"><div class="feature-icon">🌿</div><div><div class="feature-title">100% Organic</div><div class="feature-desc">USDA certified ingredients</div></div></div>
+  <div class="feature-item"><div class="feature-icon">🔄</div><div><div class="feature-title">Easy Returns</div><div class="feature-desc">30-day hassle-free policy</div></div></div>
+  <div class="feature-item"><div class="feature-icon">💳</div><div><div class="feature-title">Secure Payment</div><div class="feature-desc">Stripe-secured checkout</div></div></div>
+</div>
+
+<!-- ═══ CATEGORIES ══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-label">Browse by Type</div>
+    <div class="section-title">Shop Our Collections</div>
+    <p class="section-sub">From nourishing serums to revitalizing masks — discover your perfect organic skincare ritual.</p>
+    <div class="categories-grid" style="margin-top:2rem;">
+      <a href="pages/shop.html?cat=skincare" class="category-card">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#a8d5b5,#2d6a4f);">🧴</div>
+        <div class="cat-overlay"><h3>Skincare</h3><p>Serums, moisturizers &amp; toners</p></div>
+      </a>
+      <a href="pages/shop.html?cat=haircare" class="category-card">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#c9e8d0,#52b788);">✨</div>
+        <div class="cat-overlay"><h3>Haircare</h3><p>Masks, shampoos &amp; treatments</p></div>
+      </a>
+      <a href="pages/shop.html?cat=bodycare" class="category-card">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#b7e1c3,#3d7a4f);">🌸</div>
+        <div class="cat-overlay"><h3>Body Care</h3><p>Lotions, scrubs &amp; essentials</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BEST SELLERS ════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;">
+      <div>
+        <div class="section-label">Our Products</div>
+        <div class="section-title">Best Sellers</div>
+      </div>
+      <a href="pages/shop.html" class="btn-outline">View All</a>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT SPLIT ═════════════════════════════════════════════════════════ -->
+<section class="about-split">
+  <div class="about-img-grid">
+    <div class="img-box tall" style="background:linear-gradient(160deg,#7fb88a,#2a5c38);">🌿</div>
+    <div class="img-box" style="background:linear-gradient(135deg,#a8d5b5,#52b788);">🌸</div>
+    <div class="img-box" style="background:linear-gradient(135deg,#c9e8d0,#3d7a4f);">💚</div>
+  </div>
+  <div>
+    <div class="section-label">Why Lynya?</div>
+    <h2 class="section-title">Beauty rooted in<br><em>nature's wisdom.</em></h2>
+    <p class="section-sub">Every Lynya product starts with one commitment: what you put on your skin should be as clean as what you put in your body.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card"><div class="pillar-icon">🌱</div><div class="pillar-title">Farm-to-Skin</div><div class="pillar-desc">Ingredients from certified organic farms.</div></div>
+      <div class="pillar-card"><div class="pillar-icon">🐰</div><div class="pillar-title">Cruelty Free</div><div class="pillar-desc">Never tested on animals. PETA certified.</div></div>
+      <div class="pillar-card"><div class="pillar-icon">♻️</div><div class="pillar-title">Eco Packaging</div><div class="pillar-desc">100% recyclable materials.</div></div>
+      <div class="pillar-card"><div class="pillar-icon">🔬</div><div class="pillar-title">Science-Backed</div><div class="pillar-desc">Formulated by dermatologists.</div></div>
+    </div>
+    <br>
+    <a href="pages/about.html" class="btn-outline">Learn More →</a>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ════════════════════════════════════════════════════════ -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <div class="section-label" style="justify-content:center;display:flex;">Customer Love</div>
+      <div class="section-title" style="text-align:center;">What Our Customers Say</div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">"I've tried dozens of organic brands but Lynya is on another level. My skin has never felt this balanced and hydrated."</p><div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Amara J.</div><div class="t-loc">New York, NY</div></div></div></div>
+      <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">"Fast shipping, beautiful packaging, and the products actually work. My skin cleared up in two weeks."</p><div class="t-author"><div class="t-avatar">S</div><div><div class="t-name">Sofia M.</div><div class="t-loc">Austin, TX</div></div></div></div>
+      <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">"Finally a brand that takes ingredient transparency seriously. Everything is clean, effective and smells divine."</p><div class="t-author"><div class="t-avatar">P</div><div><div class="t-name">Priya K.</div><div class="t-loc">Los Angeles, CA</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ══════════════════════════════════════════════════════════ -->
+<section class="newsletter">
+  <div>
+    <div class="nl-title">Join the Lynya<br>Inner Circle 🌿</div>
+    <p class="nl-sub">Get 15% off your first order plus early access to new launches.</p>
+  </div>
+  <div>
+    <form class="nl-form" id="nlForm">
+      <input type="email" class="nl-input" placeholder="Enter your email address" required/>
+      <button type="submit" class="nl-btn">Subscribe</button>
+    </form>
+    <p style="color:rgba(255,255,255,0.45);font-size:0.72rem;margin-top:0.6rem;">No spam, ever. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Lynya <span>Organics</span></div>
+      <p class="footer-desc">Clean, plant-powered cosmetics crafted for conscious living.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">🎵</a>
+        <a href="#" class="social-btn">📌</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="pages/shop.html?cat=skincare">Skincare</a></li>
+        <li><a href="pages/shop.html?cat=haircare">Haircare</a></li>
+        <li><a href="pages/shop.html?cat=bodycare">Body Care</a></li>
+        <li><a href="pages/shop.html">All Products</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="pages/about.html">About Lynya</a></li>
+        <li><a href="pages/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="pages/contact.html">FAQ</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lynya Organics. All rights reserved.</span>
+    <span>Made with 💚 for clean beauty</span>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  initNav('home', '');
+
+  // Render 6 best sellers
+  const grid = document.getElementById('productsGrid');
+  PRODUCTS.slice(0,6).forEach(p => grid.insertAdjacentHTML('beforeend', productCardHTML(p, '')));
+
+  // Newsletter
+  document.getElementById('nlForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    toast('🎉 Welcome! Check your inbox for 15% off.');
+    this.reset();
+  });
+
+  // Scroll fade-in
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.style.opacity='1'; en.target.style.transform='translateY(0)'; }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.product-card,.category-card,.testimonial-card,.pillar-card').forEach((el,i) => {
+    el.style.cssText += `opacity:0;transform:translateY(20px);transition:opacity 0.45s ease ${i*0.06}s,transform 0.45s ease ${i*0.06}s`;
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
