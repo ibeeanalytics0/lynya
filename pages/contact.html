@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Lynya Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="section-label" style="justify-content:center;display:flex;">Get In Touch</div>
+  <h1 class="section-title" style="text-align:center;">We'd love to hear from you.</h1>
+  <p class="section-sub" style="margin:0.75rem auto 0;text-align:center;">Questions, feedback, or just want to say hi — we're here for you.</p>
+</div>
+
+<div class="contact-grid">
+  <!-- Contact Info -->
+  <div>
+    <div class="section-title" style="margin-bottom:1.5rem;">Contact Information</div>
+    <div class="contact-info-item">
+      <div class="contact-icon">📧</div>
+      <div>
+        <div class="contact-info-title">Email Us</div>
+        <div class="contact-info-text">hello@lynyaorganics.com<br>We reply within 24 hours.</div>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-info-title">Call Us</div>
+        <div class="contact-info-text">+1 (800) 596-9200<br>Mon–Fri, 9am–5pm EST</div>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-info-title">Our Office</div>
+        <div class="contact-info-text">123 Green Lane, Suite 4<br>New York, NY 10001</div>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-icon">💬</div>
+      <div>
+        <div class="contact-info-title">Live Chat</div>
+        <div class="contact-info-text">Chat with us on Instagram or WhatsApp for quick responses.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <div style="font-weight:700;margin-bottom:1rem;font-size:0.9rem;">Frequently Asked</div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <details style="border:1px solid var(--border);border-radius:0.6rem;padding:0.75rem 1rem;cursor:pointer;">
+          <summary style="font-weight:600;font-size:0.88rem;list-style:none;">How long does shipping take?</summary>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.6;">Standard shipping takes 3–7 business days. Orders over $50 ship free. Express 2-day shipping available at checkout.</p>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:0.6rem;padding:0.75rem 1rem;cursor:pointer;">
+          <summary style="font-weight:600;font-size:0.88rem;list-style:none;">What is your return policy?</summary>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.6;">30-day hassle-free returns. If you're not happy with your purchase, email us and we'll sort it out — no questions asked.</p>
+        </details>
+        <details style="border:1px solid var(--border);border-radius:0.6rem;padding:0.75rem 1rem;cursor:pointer;">
+          <summary style="font-weight:600;font-size:0.88rem;list-style:none;">Are your products really organic?</summary>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.6;">Yes. All Lynya products are USDA certified organic. We publish our full ingredient sourcing on each product page.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div>
+    <div class="section-title" style="margin-bottom:1.5rem;">Send a Message</div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Jane" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Doe" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="jane@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <select class="form-input">
+          <option>Order Question</option>
+          <option>Product Question</option>
+          <option>Return / Refund</option>
+          <option>Partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-input" rows="5" placeholder="Tell us how we can help…" required style="resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:0.95rem;padding:0.9rem;">
+        Send Message →
+      </button>
+    </form>
+  </div>
+</div>
+
+<footer style="background:#0f1f14;">
+  <div class="footer-bottom" style="padding:1.5rem 5rem;">
+    <span style="color:rgba(255,255,255,0.35);">© 2026 Lynya Organics</span>
+    <a href="../index.html" style="color:var(--green-light);font-size:0.82rem;">← Back to Home</a>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  initNav('contact', '../');
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    toast('✅ Message sent! We\'ll reply within 24 hours.');
+    this.reset();
+  });
+</script>
+</body>
+</html>

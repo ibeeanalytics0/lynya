@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmed — Lynya Organics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+
+<div class="result-page">
+  <div class="result-icon">🎉</div>
+  <h1 class="result-title">Order Confirmed!</h1>
+  <p class="result-sub">
+    Thank you for your purchase. We've received your order and will send a confirmation email shortly.
+    Your Lynya products are being prepared with love 🌿
+  </p>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+    <a href="../index.html" class="btn-primary">← Back to Home</a>
+    <a href="shop.html" class="btn-outline">Continue Shopping</a>
+  </div>
+  <div style="margin-top:3rem;background:var(--green-pale);border-radius:1rem;padding:1.5rem 2rem;max-width:400px;text-align:left;">
+    <div style="font-weight:700;margin-bottom:0.5rem;">What happens next?</div>
+    <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;">
+      📧 Confirmation email sent to you<br>
+      📦 Order packed within 1-2 business days<br>
+      🚚 Delivered in 3-7 business days<br>
+      🌿 Enjoy your organic Lynya products!
+    </div>
+  </div>
+</div>
+
+<script src="../js/products.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  initNav('', '../');
+  Cart.clear(); // Clear cart after successful payment
+</script>
+</body>
+</html>
